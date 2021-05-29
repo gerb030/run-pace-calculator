@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Run Pace Calculator</title>
+<meta name="description" content="Run Pace Calculator.">
+<style>
+body {
+  font-family: sans-serif;
+  font-size: 1.4vw;
+  background-color: black;
+}
+
+h1 {
+    color: #E2E2F0;
+    letter-spacing: 2px;
+}
+
+input, select {
+    background-color: #E2E2F0;
+    font-size: 1.3vw;
+    border-radius: 3px;
+    border:0px;
+    padding:4px;
+}
+
+.form_row {
+    padding: 0.8%;
+    margin: 0.4%;
+    width: 80%;
+    background-color: #A0A0D0;
+    height: 3vw;
+    border-radius: 10px;
+    border: 2px solid #E2E2FF;
+}
+</style>
+<script language="javascript" src="run-pace.js"></script>
+</head>
+<body onload="updatePace();">
+<h1>Run Pace Calculator</h1>
+
+<div id="target_distance_box" class="form_row">
+    Input your distance:
+    <input type="text" id="target_distance" name="target_distance" value="42.195" onchange="checkDistance();" \> 
+    <select id="target_unit_of_measurement" name="target_unit_of_measurement" onchange="checkUnitOfMeasurement();" \> 
+        <option selected value="kilometers">kilometers</option>
+        <option value="miles">miles</option>
+    </select>
+</div>
+
+<div id="target_time" class="form_row">
+    Input your target time:
+    <input type="text" size=2 id="target_hours" name="target_hours" value="3" onchange="checkHours();" \>  hours
+    <input type="text" size=2 id="target_minutes" name="target_minutes" value="30" onchange="checkMinutes();" \>  min
+    <input type="text" size=2 id="target_seconds" name="target_seconds" value="0" onchange="checkSeconds();" \> sec
+</div>
+
+<div id="output_pace_box" class="form_row">
+    <div id="output_pace"></div>
+    <div>* times have been rounded down to the nearest second</div>
+</div>
+
+</body>
+</html>
+
