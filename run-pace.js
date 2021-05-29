@@ -18,7 +18,11 @@ function updatePace() {
 }
 
 function _convertToNumber(input) {
-    return input.toString().replace(/[^0-9]/g, "");
+    var n =  input.toString().replace(/[^0-9]/g, "");
+    if (n == "") {
+        n = 0;
+    }
+    return n;
 }
 
 function formatToMinutes(inputSeconds) {
