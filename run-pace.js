@@ -14,7 +14,7 @@ function updatePace() {
     var seconds = parseInt(document.getElementById("target_seconds").value, 10);
     var targetPace = _calcPace(distance, hours, minutes, seconds);
     targetPace = formatToMinutes(targetPace);
-    document.getElementById("output_pace").innerHTML = "Your target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>.";
+    document.getElementById("output_pace").innerHTML = "Your average target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>.";
 }
 
 function _convertToNumber(input) {
