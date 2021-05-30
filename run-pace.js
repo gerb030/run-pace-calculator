@@ -14,11 +14,12 @@ function updatePace() {
     var seconds = parseInt(document.getElementById("target_seconds").value, 10);
     var targetPace = _calcPace(distance, hours, minutes, seconds);
     targetPace = formatToMinutes(targetPace);
-    document.getElementById("output_pace").innerHTML = "Your target pace should be <b>"+targetPace+"</b> min / "+unitOfMeasurement+".";
+    document.getElementById("output_pace").innerHTML = "Your target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>.";
 }
 
 function _convertToNumber(input) {
     var n =  input.toString().replace(/[^0-9]/g, "");
+    console.log(n);
     if (n == "") {
         n = 0;
     }
@@ -28,8 +29,72 @@ function _convertToNumber(input) {
 function formatToMinutes(inputSeconds) {
     var min = Math.floor(inputSeconds / 60);
     var sec = Math.floor(inputSeconds % 60, 2);
-    if (sec == 0) sec = "00";
+    if (sec.toString().length == 1) sec = "0" + sec;
     return min+":"+sec;
+}
+
+function checkDistanceQuickselect() {
+    var distance = 42.195;
+    var unitOfMeasurement = 'kilometers';
+    var quickSelect = document.getElementById("target_distance_quickselect").value;
+    switch(quickSelect) {
+        case '800m':
+            distance = .8;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '3km':
+            distance = 3;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '5km':
+            distance = 5;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '10km':
+            distance = 10;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '10mi':
+            distance = 10;
+            unitOfMeasurement = 'miles';
+            break;
+        case '16km':
+            distance = 16;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case 'half-marathon-km':
+            distance = 21.1;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case 'half-marathon-miles':
+            distance = 13.1;
+            unitOfMeasurement = 'miles';
+            break;
+        case 'marathon-km':
+            distance = 42.195;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case 'marathon-miles':
+            distance = 26.2;
+            unitOfMeasurement = 'miles';
+            break;
+        case '50km':
+            distance = 50;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '100km':
+            distance = 100;
+            unitOfMeasurement = 'kilometers';
+            break;
+        case '100mi':
+        default:
+            distance = 100;
+            unitOfMeasurement = 'miles';
+            break;
+    }
+    document.getElementById("target_distance").value = distance;
+    document.getElementById("target_unit_of_measurement").value = unitOfMeasurement;
+    updatePace();
 }
 
 function checkDistance() {

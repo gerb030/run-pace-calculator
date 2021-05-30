@@ -2,20 +2,31 @@
 <head>
 <title>Run Pace Calculator</title>
 <meta name="description" content="Run Pace Calculator.">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@200&display=swap" rel="stylesheet">
 <style>
 body {
-  font-family: sans-serif;
+  font-family: 'Exo', sans-serif;;
   font-size: 1.4vw;
-  background-color: black;
+  background-color: #0B0C10;
+  color: #C5C6C7;
 }
 
 h1 {
-    color: #E2E2F0;
+    color: #66FCF1;
     letter-spacing: 2px;
 }
 
+/*
+#66FCF1
+#1F2833
+#C5C6C7
+#45A29E
+#66FCF1
+*/
 input, select {
-    background-color: #E2E2F0;
+    background-color: #C5C6C7;
+    color: #0B0C10;
     font-size: 1.3vw;
     border-radius: 3px;
     border:0px;
@@ -26,10 +37,21 @@ input, select {
     padding: 0.8%;
     margin: 0.4%;
     width: 80%;
-    background-color: #A0A0D0;
+    background-color: #1F2833;
     height: 3vw;
     border-radius: 10px;
-    border: 2px solid #E2E2FF;
+    border: 2px solid #45A29E;
+    padding-bottom: 1.2%;
+}
+
+.pace {
+    color: #66FCF1;
+}
+
+#disclaimer {
+    color: #C5C6C7;
+    padding-top: 1vw;
+    padding-left: 1vw;
 }
 </style>
 <script language="javascript" src="run-pace.js"></script>
@@ -38,7 +60,22 @@ input, select {
 <h1>Run Pace Calculator</h1>
 
 <div id="target_distance_box" class="form_row">
-    Input your distance:
+    Select your distance:
+    <select id="target_distance_quickselect" name="target_distance_quickselect" onchange="checkDistanceQuickselect();" \> 
+        <option value="800m">800 meters</option>
+        <option value="3km">3 km</option>
+        <option value="5km">5 km</option>
+        <option value="10km">10 km</option>
+        <option value="16km">16 km (metric)</option>
+        <option value="10mi">10 miles (imperial)</option>
+        <option value="half-marathon-km">half marathon (metric)</option>
+        <option value="half-marathon-miles">half marathon (imperial)</option>
+        <option selected value="marathon-km">marathon (metric)</option>
+        <option value="marathon-miles">marathon (imperial)</option>
+        <option value="50km">50 km</option>
+        <option value="100km">100 km</option>
+    </select>
+    or input it manually:
     <input type="text" id="target_distance" name="target_distance" value="42.195" onchange="checkDistance();" \> 
     <select id="target_unit_of_measurement" name="target_unit_of_measurement" onchange="checkUnitOfMeasurement();" \> 
         <option selected value="kilometers">kilometers</option>
@@ -57,7 +94,10 @@ input, select {
     <div id="output_pace"></div>
     <div>* times have been rounded down to the nearest second</div>
 </div>
-
+<div id="disclaimer">
+    This web app does not use cookies, and your information is used only on your local device. <br \>
+    v1.0.0, by <a href="https://twitter.com/g_e_r_b" target="_blank">g_e_r_b</a>.
+</div>
 </body>
 </html>
 
