@@ -1,6 +1,10 @@
 
 
-function _calcPace(distance, hours, minutes, seconds) {
+function _calcPace(distance, unitOfMeasurement, hours, minutes, seconds) {
+    // distance is invariably defined in KM
+    if (unitOfMeasurement == 'mile') {
+        distance = distance / 1.609344;
+    }
     var targetTimeInSeconds = hours * 3600 + minutes * 60 + seconds;
     var targetPace = targetTimeInSeconds / distance;
     return targetPace;
@@ -12,7 +16,7 @@ function updatePace() {
     var hours = parseInt(document.getElementById("target_hours").value, 10);
     var minutes = parseInt(document.getElementById("target_minutes").value, 10);
     var seconds = parseInt(document.getElementById("target_seconds").value, 10);
-    var targetPace = _calcPace(distance, hours, minutes, seconds);
+    var targetPace = _calcPace(distance, unitOfMeasurement, hours, minutes, seconds);
     targetPace = formatToMinutes(targetPace);
     document.getElementById("output_pace").innerHTML = "Your average target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>.";
 }
