@@ -1,5 +1,3 @@
-
-
 function _calcPace(distance, unitOfMeasurement, hours, minutes, seconds) {
     // distance is invariably defined in KM
     if (unitOfMeasurement == 'mile') {
@@ -18,12 +16,12 @@ function updatePace() {
     var seconds = parseInt(document.getElementById("target_seconds").value, 10);
     var targetPace = _calcPace(distance, unitOfMeasurement, hours, minutes, seconds);
     targetPace = formatToMinutes(targetPace);
-    document.getElementById("output_pace").innerHTML = "Your average target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>.";
+    var targetTime = document.getElementById("target_hours").value+":"+document.getElementById("target_minutes").value+":"+document.getElementById("target_seconds").value;
+    document.getElementById("output_pace").innerHTML = "Your average target pace should be <b class='pace'>"+targetPace+" min / "+unitOfMeasurement+"</b>. With this pace you will finish in <b class='pace'>"+targetTime+"</b>.";
 }
 
 function _convertToNumber(input) {
     var n =  input.toString().replace(/[^0-9]/g, "");
-    console.log(n);
     if (n == "") {
         n = 0;
     }
@@ -104,24 +102,22 @@ function checkDistance() {
 }
 
 function checkUnitOfMeasurement() {
-    // todo: validation
     updatePace();
 }
 
 function checkHours() {
-    // todo: validation
     document.getElementById("target_hours").value = _convertToNumber(document.getElementById("target_hours").value);
     updatePace();
 }
 
 function checkMinutes() {
-    // todo: validation
-    document.getElementById("target_minutes").value = _convertToNumber(document.getElementById("target_minutes").value);
+    var minutes = _convertToNumber(document.getElementById("target_minutes").value);
+    document.getElementById("target_minutes").value = (minutes.toString().length==1 ? "0" : "") + minutes;
     updatePace();
 }
 
 function checkSeconds() {
-    // todo: validation
-    document.getElementById("target_seconds").value = _convertToNumber(document.getElementById("target_seconds").value);
+    var seconds = _convertToNumber(document.getElementById("target_seconds").value);
+    document.getElementById("target_seconds").value = (seconds.toString().length==1 ? "0" : "") + seconds;
     updatePace();
 }
