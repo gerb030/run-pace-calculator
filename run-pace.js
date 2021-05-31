@@ -35,61 +35,53 @@ function formatToMinutes(inputSeconds) {
 
 function checkDistanceQuickselect() {
     var distance = 42.195;
-    var unitOfMeasurement = 'kilometers';
+    var unitOfMeasurement = 'kilometer';
     var quickSelect = document.getElementById("target_distance_quickselect").value;
     switch(quickSelect) {
         case '800m':
             distance = .8;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
+            break;
+        case '1mi':
+            distance = 1.60934;
+            unitOfMeasurement = 'kilometer';
             break;
         case '3km':
             distance = 3;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
             break;
         case '5km':
             distance = 5;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
             break;
         case '10km':
             distance = 10;
-            unitOfMeasurement = 'kilometers';
-            break;
-        case '10mi':
-            distance = 10;
-            unitOfMeasurement = 'miles';
+            unitOfMeasurement = 'kilometer';
             break;
         case '16km':
             distance = 16;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
             break;
         case 'half-marathon-km':
             distance = 21.1;
-            unitOfMeasurement = 'kilometers';
-            break;
-        case 'half-marathon-miles':
-            distance = 13.1;
-            unitOfMeasurement = 'miles';
+            unitOfMeasurement = 'kilometer';
             break;
         case 'marathon-km':
             distance = 42.195;
-            unitOfMeasurement = 'kilometers';
-            break;
-        case 'marathon-miles':
-            distance = 26.2;
-            unitOfMeasurement = 'miles';
+            unitOfMeasurement = 'kilometer';
             break;
         case '50km':
             distance = 50;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
             break;
         case '100km':
             distance = 100;
-            unitOfMeasurement = 'kilometers';
+            unitOfMeasurement = 'kilometer';
             break;
         case '100mi':
         default:
             distance = 100;
-            unitOfMeasurement = 'miles';
+            unitOfMeasurement = 'mile';
             break;
     }
     document.getElementById("target_distance").value = distance;

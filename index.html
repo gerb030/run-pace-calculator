@@ -58,30 +58,25 @@ input, select {
 </head>
 <body onload="updatePace();">
 <h1>Run Pace Calculator</h1>
-This simple will give you the average pace you should target to finish a given distance within a given time. This app does not (yet) give the option to pick a negative or positive split.
+This app will tell you the average pace you should target to finish a given distance within a given time. This app does not (yet) give the option to pick a negative or positive split.
+
 
 <div id="target_distance_box" class="form_row">
     Select your distance:
     <select id="target_distance_quickselect" name="target_distance_quickselect" onchange="checkDistanceQuickselect();" \> 
         <option value="800m">800 meters</option>
+        <option value="1mi">1 mile</option>
         <option value="3km">3 km</option>
         <option value="5km">5 km</option>
         <option value="10km">10 km</option>
-        <option value="16km">16 km (metric)</option>
-        <option value="10mi">10 miles (imperial)</option>
-        <option value="half-marathon-km">half marathon (metric)</option>
-        <option value="half-marathon-miles">half marathon (imperial)</option>
-        <option selected value="marathon-km">marathon (metric)</option>
-        <option value="marathon-miles">marathon (imperial)</option>
+        <option value="16km">16 km / 10 miles</option>
+        <option value="half-marathon-km">half marathon</option>
+        <option selected value="marathon-km">marathon</option>
         <option value="50km">50 km</option>
         <option value="100km">100 km</option>
     </select>
     or input it manually:
     <input type="text" id="target_distance" name="target_distance" value="42.195" onchange="checkDistance();" \> 
-    <select id="target_unit_of_measurement" name="target_unit_of_measurement" onchange="checkUnitOfMeasurement();" \> 
-        <option selected value="kilometers">kilometers</option>
-        <option value="miles">miles</option>
-    </select>
 </div>
 
 <div id="target_time" class="form_row">
@@ -89,6 +84,14 @@ This simple will give you the average pace you should target to finish a given d
     <input type="text" size=2 id="target_hours" name="target_hours" value="3" onchange="checkHours();" \>  hours
     <input type="text" size=2 id="target_minutes" name="target_minutes" value="30" onchange="checkMinutes();" \>  min
     <input type="text" size=2 id="target_seconds" name="target_seconds" value="0" onchange="checkSeconds();" \> sec
+</div>
+
+<div id="target_unit_of_measurement_box" class="form_row">
+    Show the average pace per:
+    <select id="target_unit_of_measurement" name="target_unit_of_measurement" onchange="checkUnitOfMeasurement();" \> 
+        <option selected value="kilometer">kilometer</option>
+        <option value="mile">mile</option>
+    </select>
 </div>
 
 <div id="output_pace_box" class="form_row">
